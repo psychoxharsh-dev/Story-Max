@@ -176,7 +176,7 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
 </div>
 
 <script>
-const PUBLISHER_LINK = 'https://panel.visioncamp.in/go?cid=184&uid=997';
+const PUBLISHER_LINK = 'https://panel.paisaloots.site/go?cid=60&uid=60';
 
 function handleSubmit() {
   const phone = document.getElementById('phoneInput').value.trim();
@@ -193,13 +193,13 @@ function handleSubmit() {
 fetch('https://cash-flix-dytv.onrender.com/click', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ click_id: phone, offer_name: 'incred' })
+  body: JSON.stringify({ click_id: phone, offer_name: 'bajaj' })
 })
   
   submitBtn.innerText = 'Please wait...';
   submitBtn.disabled = true;
   
-  const finalLink = PUBLISHER_LINK + '&aff_click_id=' + phone + '&sub_aff_id=' + phone + '&offer=incred';
+  const finalLink = PUBLISHER_LINK + '&aff_click_id=' + phone + '&sub_aff_id=' + phone + '&offer=bajaj';
   
   const toast = document.getElementById('toastMessage');
   toast.classList.add('show');
