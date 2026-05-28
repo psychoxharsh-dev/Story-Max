@@ -14,8 +14,117 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
 /* Main Card - Jab form dikhana ho */
 .main-card { background:#fff; border-radius:24px; padding:24px; max-width:420px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.10); border-top:4px solid #0d47a1; }
 
-/* Paused Card - Jab offer band ho */
-.paused-card { max-width:340px; width:100%; background:#fff; border-radius:32px; box-shadow:0 12px 28px -8px rgba(2,132,199,.25); overflow:hidden; text-align:center; }
+/* New Paused Card - Cyber/Sci-Fi Style */
+.paused-card {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background: transparent;
+}
+
+.paused-card .code {
+  display: inline-block;
+  background: red;
+  padding: 8px 18px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-family: monospace;
+  color: #fff;
+}
+
+.paused-card .title {
+  font-size: 60px;
+  font-weight: 900;
+  text-shadow: 3px 0 blue, -3px 0 red;
+  animation: glitch 0.15s infinite;
+  font-family: monospace;
+  color: #fff;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, 2px); }
+  100% { transform: translate(0); }
+}
+
+.paused-card .reason {
+  margin-top: 40px;
+  color: #00ff44;
+  font-size: 22px;
+  line-height: 1.5;
+  text-shadow: 0 0 10px #00ff44;
+  font-family: monospace;
+}
+
+.paused-card .btn {
+  display: inline-block;
+  margin-top: 60px;
+  padding: 16px 45px;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 28px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+  transition: 0.3s;
+  font-family: monospace;
+}
+
+.paused-card .btn:hover {
+  background: #00ff44;
+  color: #000;
+  box-shadow: 0 0 20px #00ff44;
+}
+
+@media (max-width: 500px) {
+  .paused-card .title { font-size: 48px; }
+  .paused-card .reason { font-size: 18px; }
+  .paused-card .btn { font-size: 22px; padding: 14px 35px; }
+}
+
+/* Paused Card Background */
+.paused-wrapper {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.paused-wrapper:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://i.imgur.com/8fK4h6G.gif');
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.paused-wrapper .line {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #888;
+  box-shadow: 0 0 10px #fff;
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  100% { top: 100%; }
+}
 
 .header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
 .app-icon { width:64px; height:64px; border-radius:16px; background:linear-gradient(135deg,#0d47a1,#1565c0); display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; }
@@ -48,21 +157,12 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
 .toast { position:fixed; top:30px; left:50%; transform:translateX(-50%); background:#fff; color:#10b981; padding:12px 24px; border-radius:40px; font-size:14px; font-weight:800; text-align:center; z-index:10000; opacity:0; visibility:hidden; transition:all 0.3s ease; box-shadow:0 10px 25px -5px rgba(0,0,0,0.1); font-family:'Nunito',sans-serif; display:flex; align-items:center; gap:8px; white-space:nowrap; border:1px solid #e5e7eb; }
 .toast.show { opacity:1; visibility:visible; }
 
-/* Paused Screen Styles */
-.paused-content { padding:36px 20px 32px; }
-.paused-content h2 { font-size:24px; font-weight:900; background:linear-gradient(135deg,#0284c7,#0ea5e9); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:10px; }
-.paused-content p { font-size:13px; color:#5b7a9a; margin-bottom:28px; line-height:1.45; }
-.paused-btn { display:inline-flex; align-items:center; gap:8px; background:#f0f9ff; border:1px solid #bae6fd; padding:10px 22px; border-radius:40px; font-size:13px; font-weight:700; color:#0284c7; text-decoration:none; transition:.2s; }
-.paused-btn:hover { background:#e6f4ff; transform:scale(1.02); }
-.paused-footer { padding:12px; background:#f8fafc; font-size:11px; font-weight:600; color:#7c9ec0; border-top:1px solid #e2e8f0; text-align:center; }
-.paused-footer span { background:linear-gradient(135deg,#0284c7,#0ea5e9); -webkit-background-clip:text; background-clip:text; color:transparent; }
-
 .hidden { display: none; }
 </style>
 </head>
 <body>
 
-<!-- Form Card -->
+<!-- Form Card (Normal) -->
 <div id="formCard" class="main-card">
   <div class="header">
     <div class="app-icon"><img src="https://i.ibb.co/Qg0LT04/images-1.png" style="width:100%;height:100%;border-radius:16px;object-fit:cover;"></div>
@@ -93,14 +193,19 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
   <div class="powered">Powered by <span>CashFlix ⚡</span></div>
 </div>
 
-<!-- Paused Card -->
-<div id="pausedCard" class="paused-card hidden">
-  <div class="paused-content">
-    <h2>StoryMax</h2>
-    <p>Offer temporarily paused.<br>Please try again later!</p>
-    <a class="paused-btn" href="https://cashflix.site"><i class="fas fa-compass"></i> Explore more offers <i class="fas fa-arrow-right"></i></a>
+<!-- New Paused Card (Cyber/Sci-Fi Style) -->
+<div id="pausedCard" class="hidden paused-wrapper">
+  <div class="line"></div>
+  <div class="paused-card">
+    <div class="code">CODE: ERR_403_PAUSE</div>
+    <div class="title">OFFER PAUSED</div>
+    <div class="reason">
+      &gt; REASON: MAINTENANCE IN <br>
+      PROGRESS. OFFER WILL LIVE <br>
+      SHORTLY.
+    </div>
+    <a href="https://CashFlix.site" class="btn">Main Page</a>
   </div>
-  <div class="paused-footer"><i class="fas fa-bolt"></i> Powered by <span>CashFlix</span></div>
 </div>
 
 <div id="toastMessage" class="toast">✅ Success! Redirecting you now...</div>
