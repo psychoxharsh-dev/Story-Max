@@ -13,62 +13,34 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
 
 .main-card { background:#fff; border-radius:24px; padding:24px; max-width:420px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.10); border-top:4px solid #0d47a1; }
 
-/* New Cyber Paused Card */
-.paused-wrapper {
+/* Cyber Paused Card - Card style, not full screen */
+.cyber-card {
   background: #000;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
   border-radius: 24px;
-  overflow: hidden;
-}
-.paused-wrapper:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('https://i.imgur.com/8fK4h6G.gif');
-  opacity: 0.18;
-  pointer-events: none;
-}
-.paused-wrapper .line {
-  position: absolute;
-  top: -2px;
-  left: 0;
+  padding: 40px 24px;
+  max-width: 420px;
   width: 100%;
-  height: 2px;
-  background: #888;
-  box-shadow: 0 0 10px #fff;
-  animation: scan 4s linear infinite;
-}
-@keyframes scan { 100% { top: 100%; } }
-.paused-card {
-  position: relative;
-  z-index: 2;
   text-align: center;
-  width: 100%;
-  max-width: 500px;
-  padding: 20px;
+  border: 1px solid #333;
+  box-shadow: 0 0 20px rgba(0,255,68,0.15);
 }
-.paused-card .code {
+.cyber-card .code {
   display: inline-block;
   background: red;
-  padding: 8px 18px;
-  font-size: 17px;
+  padding: 6px 16px;
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 30px;
   font-family: monospace;
   color: #fff;
+  margin-bottom: 25px;
 }
-.paused-card .title {
-  font-size: 60px;
+.cyber-card .title {
+  font-size: 48px;
   font-weight: 900;
+  font-family: monospace;
+  color: #fff;
   text-shadow: 3px 0 blue, -3px 0 red;
   animation: glitch 0.15s infinite;
-  font-family: monospace;
-  color: #fff;
 }
 @keyframes glitch {
   0% { transform: translate(0); }
@@ -77,32 +49,30 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
   75% { transform: translate(-1px, 2px); }
   100% { transform: translate(0); }
 }
-.paused-card .reason {
-  margin-top: 40px;
-  color: #00ff44;
-  font-size: 22px;
-  line-height: 1.5;
-  text-shadow: 0 0 10px #00ff44;
+.cyber-card .reason {
+  margin: 30px 0;
+  color: #0f0;
+  font-size: 18px;
   font-family: monospace;
+  text-shadow: 0 0 5px #0f0;
+  line-height: 1.5;
 }
-.paused-card .btn {
+.cyber-card .btn {
   display: inline-block;
-  margin-top: 60px;
-  padding: 16px 45px;
+  padding: 12px 35px;
   border: 2px solid #fff;
   color: #fff;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 20px;
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(3px);
   transition: 0.3s;
   font-family: monospace;
 }
-.paused-card .btn:hover { background: #00ff44; color: #000; }
+.cyber-card .btn:hover { background: #0f0; color: #000; box-shadow: 0 0 15px #0f0; }
 @media (max-width: 500px) {
-  .paused-card .title { font-size: 48px; }
-  .paused-card .reason { font-size: 18px; }
-  .paused-card .btn { font-size: 22px; padding: 14px 35px; }
+  .cyber-card .title { font-size: 36px; }
+  .cyber-card .reason { font-size: 15px; }
+  .cyber-card .btn { font-size: 18px; padding: 10px 25px; }
 }
 
 .header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
@@ -171,15 +141,12 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
   <div class="powered">Powered by <span>CashFlix ⚡</span></div>
 </div>
 
-<!-- New Cyber Paused Card -->
-<div id="pausedCard" class="hidden paused-wrapper">
-  <div class="line"></div>
-  <div class="paused-card">
-    <div class="code">CODE: ERR_403_PAUSE</div>
-    <div class="title">OFFER PAUSED</div>
-    <div class="reason">&gt; REASON: MAINTENANCE IN<br>PROGRESS. OFFER WILL LIVE<br>SHORTLY.</div>
-    <a href="https://CashFlix.site" class="btn">Main Page</a>
-  </div>
+<!-- Cyber Paused Card - Card style, full screen nahi -->
+<div id="pausedCard" class="cyber-card hidden">
+  <div class="code">CODE: ERR_403_PAUSE</div>
+  <div class="title">OFFER PAUSED</div>
+  <div class="reason">&gt; REASON: MAINTENANCE IN<br>PROGRESS. OFFER WILL LIVE<br>SHORTLY.</div>
+  <a href="https://CashFlix.site" class="btn">Main Page</a>
 </div>
 
 <div id="toastMessage" class="toast">✅ Success! Redirecting you now...</div>
