@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Story Max- CashFlix ⚡</title>
+<title>Story Max - CashFlix ⚡</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -13,94 +14,49 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
 
 .main-card { background:#fff; border-radius:24px; padding:24px; max-width:420px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.10); border-top:4px solid #0d47a1; }
 
-/* Full Screen Paused Wrapper */
-.paused-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-/* Moving Line - Upar se */
-.paused-wrapper .line {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #fff, #0f0, #fff, transparent);
-  animation: moveLine 3s linear infinite;
-  box-shadow: 0 0 5px #0f0;
-}
-@keyframes moveLine {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-.paused-card {
+/* New Paused Card - Green Circle Style */
+.pause-card {
+  width: 320px;
+  background: #fff;
+  border-radius: 35px;
+  padding: 85px 25px 40px;
   text-align: center;
-  width: 100%;
-  max-width: 500px;
-  padding: 20px;
-  z-index: 2;
   position: relative;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
-.paused-card .code {
-  display: inline-block;
-  background: red;
-  padding: 8px 18px;
-  font-size: 17px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  font-family: monospace;
-  color: #fff;
+.pause-icon {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #73f000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.18);
 }
-.paused-card .title {
-  font-size: 60px;
-  font-weight: 900;
-  text-shadow: 3px 0 blue, -3px 0 red;
-  animation: glitch 0.15s infinite;
-  font-family: monospace;
-  color: #fff;
+.pause-icon .bar {
+  width: 8px;
+  height: 42px;
+  background: #176300;
+  border-radius: 20px;
+  margin: 0 8px;
 }
-@keyframes glitch {
-  0% { transform: translate(0); }
-  25% { transform: translate(-2px, 1px); }
-  50% { transform: translate(2px, -1px); }
-  75% { transform: translate(-1px, 2px); }
-  100% { transform: translate(0); }
+.pause-title {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: 28px;
 }
-.paused-card .reason {
-  margin-top: 40px;
-  color: #00ff44;
-  font-size: 22px;
-  line-height: 1.5;
-  text-shadow: 0 0 10px #00ff44;
-  font-family: monospace;
-}
-.paused-card .btn {
-  display: inline-block;
-  margin-top: 60px;
-  padding: 16px 45px;
-  border: 2px solid #fff;
-  color: #fff;
-  text-decoration: none;
-  font-size: 28px;
-  background: rgba(255,255,255,0.05);
-  transition: 0.3s;
-  font-family: monospace;
-}
-.paused-card .btn:hover { background: #00ff44; color: #000; box-shadow: 0 0 20px #00ff44; }
-@media (max-width: 500px) {
-  .paused-card .title { font-size: 48px; }
-  .paused-card .reason { font-size: 18px; }
-  .paused-card .btn { font-size: 22px; padding: 14px 35px; }
+.pause-text {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #9d9d9d;
+  font-weight: 600;
 }
 
 .header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
@@ -143,7 +99,7 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
   <div class="header">
    <div class="app-icon"><img src="https://i.ibb.co/d06FxjjT/images.png" style="width:100%;height:100%;border-radius:16px;object-fit:cover;"></div>
     <div class="header-text">
-      <h1>StoryMax</h1>
+      <h1>Story Max</h1>
       <p>Complete & earn instantly</p>
     </div>
   </div>
@@ -164,19 +120,24 @@ body { font-family:'Nunito',sans-serif; background:#f0f4ff; min-height:100vh; di
   <div class="steps-title">🕐 How to complete this offer?</div>
   <div class="step"><div class="step-num">1</div><div class="step-text">Enter Your Wallet Number & Submit.</div></div>
   <div class="step"><div class="step-num">2</div><div class="step-text">Install & Register Partner App.</div></div>
-  <div class="step"><div class="step-num">3</div><div class="step-text">Buy 1rs Trail StoryMax App.</div></div>
-  <div class="step"><div class="step-num">4</div><div class="step-text">Done You Will Get <span class="highlight">₹25</span> Cashback in Your Wallet.</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-text">Buy 1rs Trail Story Max App.</div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-text">Done You Will Get <span class="highlight">₹15</span> Cashback in Your Wallet.</div></div>
   <div class="powered">Powered by <span>CashFlix ⚡</span></div>
 </div>
 
-<!-- Full Screen Paused Card -->
-<div id="pausedCard" class="paused-wrapper hidden">
-  <div class="line"></div>
-  <div class="paused-card">
-    <div class="code">CODE: STORY_MAX_PAUSE</div>
-    <div class="title">OFFER PAUSED</div>
-    <div class="reason">&gt; REASON: MAINTENANCE IN<br>PROGRESS. OFFER WILL LIVE<br>SHORTLY.</div>
-    <a href="https://CashFlix.site" class="btn">Main Page</a>
+<!-- New Paused Card - Green Circle Style -->
+<div id="pausedCard" class="hidden pause-card">
+  <div class="pause-icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="pause-title">
+    Story Max Temporarily Paused<br>
+  </div>
+  <div class="pause-text">
+    This offer is currently unavailable.<br>
+    It will be live again shortly.<br>
+    Please check back soon.
   </div>
 </div>
 
